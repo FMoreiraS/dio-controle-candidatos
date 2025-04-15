@@ -17,8 +17,8 @@ formato adequado;
 7. operador **+** e método **concat** para concatenação de textos e variáveis;
 8. "//" e "/* */" para comentários de uma e de múltiplas linhas.
 ### Observação:
-A transmissão da sintaxe básica de Java não incluiu estruturas condicionais ou laços de repetição,
-por exemplo, deteve-se em tipos de dados, métodos, nomeações e outros. Mas, entre outras coisas,
-**condicionais** seriam indispensáveis, considerando que os dados inseridos pelo usuário poderiam 
-ser incorretos e causar erro na execução da aplicação. Portanto, sabendo disso, é somente para
-manter o foco no solicitado que mantemos apenas os recursos citados.
+A primeira parte da transmissão da sintaxe básica de Java não incluiu estruturas condicionais ou
+laços de repetição, por exemplo, deteve-se em tipos de dados, métodos, nomeações e outros. Mas,
+entre outras coisas, **condicionais** seriam indispensáveis, considerando que os dados inseridos
+pelo usuário poderiam ser incorretos e causar erro na execução da aplicação. Portanto, sabendo
+disso, é somente para manter o foco no solicitado que mantemos apenas os recursos citados.
