@@ -1,3 +1,6 @@
-# dio-basic-java
-This repository is for host the DIO's java basic syntax course. <br> 
-Until now, it contain the first project challenge, proposed in https://github.com/digitalinnovationone/trilha-java-basico/tree/main/desafios/sintaxe, that is called "conta-banco" as requested.
+## dio-basic-java
+Este repositório serve à hospedagem dos projetos propostos pelo curso de Java básico da 
+[DIO](https://github.com/digitalinnovationone).
+Segue a lista de projetos:
+1. `conta-banco`, um sistema bancário executado via terminal;
+2. `controle-candidatos`, um validador de processo seletivo.

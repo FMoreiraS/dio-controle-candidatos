@@ -1,2 +1,4 @@
-lib
 .vscode
+.idea
+dio-basic-java.iml
+controle-candidatos.iml
