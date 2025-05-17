@@ -53,13 +53,13 @@ public class ProcessoSeletivo {
                 System.out.println("Resposta inválida");
                 return;
             }
-            System.out.printf("Pretensão salarial: %.2f ", salarioPretendido);
+            System.out.printf("Com a pretensão salarial de %.2f", salarioPretendido);
             if(salarioPretendido < salarioBase) {
-                System.out.println("Ligar para o candidato.");
+                System.out.println(", devemos ligar para o candidato.");
             } else if(salarioPretendido == salarioBase) {
-                System.out.println("Ligar para o candidato com contra-proposta.");
+                System.out.println(", devemos ligar para o candidato com contra-proposta.");
             } else {
-                System.out.println("Aguardar o resultado dos demais candidatos.");
+                System.out.println(", devemos aguardar o resultado dos demais candidatos.");
             }
         } catch(InputMismatchException exception) {
             System.err.println("A resposta deve ser um número, com '.' para valores decimais.");
