@@ -5,3 +5,4 @@ Segue a lista de projetos:
 1. `conta-banco`, um sistema bancário simples executado via terminal;
 2. `controle-candidatos`, um validador de processo seletivo;
 3. `modelagem-iphone`, uma implementação conceitual baseada em interfaces.
+4. `banco-digital-poo`, prática de orientação a objetos com sistema bancário simples.
