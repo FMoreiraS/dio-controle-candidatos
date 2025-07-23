@@ -43,6 +43,7 @@ public class Main {
 			Set<Conta> contas = banco.getContas();
 			int numConta;
 			double valor;
+			Conta contaUsuario = null;
 			switch (option) {
 				case 1:
 					banco.listarContas();
@@ -53,60 +54,70 @@ public class Main {
 					option = 0;
 					break;
 				case 3:
-					if (!contas.isEmpty()) {
+//					if (!contas.isEmpty()) {
 						System.out.println("Digite o número da conta que deseja consultar.");
 						numConta = input.nextInt();
-						for (Conta c : contas) {
-							if (c.getNumero() == numConta) {
-								c.imprimirExtrato();
-							}
-						}
-					} else {
-						System.out.println("O banco " + banco.getNome() + " não possui contas.");
-					}
+						contaUsuario = banco.buscarConta(numConta);
+						contaUsuario.imprimirExtrato();
+//						for (Conta c : contas) {
+//							if (c.getNumero() == numConta) {
+//								c.imprimirExtrato();
+//							}
+//						}
+//					} else {
+//						System.out.println("O banco " + banco.getNome() + " não possui contas.");
+//					}
 					break;
 				case 4:
-					if (!contas.isEmpty()) {
+//					if (!contas.isEmpty()) {
 						System.out.println("Digite o número da conta que receberá o depósito.");
 						numConta = input.nextInt();
 						System.out.println("Digite o valor do depósito.");
 						valor = input.nextInt();
-						for (Conta c : contas) {
-							if (c.getNumero() == numConta) c.depositar(valor);
-							break;
-						}
-					} else {
-						System.out.println("O banco " + banco.getNome() + " não possui contas.");
-					}
+						contaUsuario = banco.buscarConta(numConta);
+						contaUsuario.depositar(valor);
+//						for (Conta c : contas) {
+//							if (c.getNumero() == numConta) c.depositar(valor);
+//							break;
+//						}
+//					} else {
+//						System.out.println("O banco " + banco.getNome() + " não possui contas.");
+//					}
 					option = 0;
 					break;
 				case 5:
-					System.out.println("Digite o número da conta");
+					System.out.println("Digite o número da sua conta");
 					numConta = input.nextInt();
-					for (Conta c : contas) {
-						if (c.getNumero() == numConta) {
-							System.out.println("Digite o valor que deseja sacar.");
-							c.sacar(input.nextDouble());
-						}
-					}
+					contaUsuario = banco.buscarConta(numConta);
+					System.out.println("Digite o valor que deseja sacar.");
+					contaUsuario.sacar(input.nextDouble());
+//					for (Conta c : contas) {
+//						if (c.getNumero() == numConta) {
+//							System.out.println("Digite o valor que deseja sacar.");
+//							c.sacar(input.nextDouble());
+//						}
+//					}
 					option = 0;
 					break;
 				case 6:
 					System.out.println("Digite o número da conta que transferirá.");
 					numConta = input.nextInt();
 					System.out.println("Digite o número da conta que receberá a transferência.");
-					int contaDestino = input.nextInt();
+					int numContaDestino = input.nextInt();
 					System.out.println("Digite o valor da transferência.");
 					valor = input.nextDouble();
-					if (numConta != contaDestino) {
-						for (Conta c1 : contas) {
-							for (Conta c2 : contas) {
-								if (c1.getNumero() == numConta && c2.getNumero() == contaDestino) {
-									c1.transferir(valor, c2);
-									break;
-								}
-							}
-						}
+					if (numConta != numContaDestino) {
+						contaUsuario = banco.buscarConta(numConta);
+						Conta contaDestino = banco.buscarConta(numContaDestino);
+						contaUsuario.transferir(valor, contaDestino);
+//						for (Conta c1 : contas) {
+//							for (Conta c2 : contas) {
+//								if (c1.getNumero() == numConta && c2.getNumero() == contaDestino) {
+//									c1.transferir(valor, c2);
+//									break;
+//								}
+//							}
+//						}
 					} else {
 						System.out.println("A transferência deve ocorrer entre contas distintas.");
 					}

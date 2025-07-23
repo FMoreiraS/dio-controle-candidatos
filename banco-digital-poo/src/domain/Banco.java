@@ -33,12 +33,6 @@ public class Banco {
 		}
 	}
 
-	public void fazerTransacao() {
-		Set<Conta> contasOrdenadas = new TreeSet<>(new CompararPorNumero());
-		//Consumer<String>
-		//TODO: usar um consumer para realizar a transação de acordo com o tipo indicado pelo menu da Main.
-	}
-
 	public void addConta(String nomeCliente, String tipoConta) {
 		if (tipoConta.equalsIgnoreCase("corrente")){
 			contas.add(new ContaCorrente(new Cliente(nomeCliente)));
@@ -72,7 +66,22 @@ public class Banco {
 			System.out.println("Falha ao adicionar a conta.");
 			return;
 		}
-		System.out.println("dominio.Conta criada com sucesso.");
+		System.out.println("Conta criada com sucesso.");
+	}
+
+	public Conta buscarConta(int numero) {
+		Conta conta = null;
+		if (!contas.isEmpty()) {
+			for (Conta c : contas) {
+				if (c.getNumero() == numero) {
+					conta = c;
+				}
+			}
+			if (conta == null) throw new RuntimeException("A");
+			return conta;
+		} else {
+			throw new RuntimeException("O banco não possui contas.");
+		}
 	}
 
 	public String getNome() {
