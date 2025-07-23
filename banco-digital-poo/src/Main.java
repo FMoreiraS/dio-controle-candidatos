@@ -15,12 +15,13 @@ public class Main {
 			System.out.printf("\n====== BANCO %s ======\n", banco.getNome());
 			System.out.println("==== MENU PRINCIPAL ====");
 			System.out.println("1. Listar Contas");
-			System.out.println("2. Criar conta");
+			System.out.println("2. Abrir conta");
 			System.out.println("3. Consultar extrato");
 			System.out.println("4. Depositar");
 			System.out.println("5. Sacar");
 			System.out.println("6. Transferir");
-			System.out.println("7. Sair");
+			System.out.println("7. Fechar conta");
+			System.out.println("8. Sair");
 
 			option = input.nextInt();
 			Set<Conta> contas = banco.getContas();
@@ -76,11 +77,15 @@ public class Main {
 					option = 0;
 					break;
 				case 7:
+					System.out.println("Digite o número da conta para o fechamento.");
+					numConta = input.nextInt();
+					banco.fecharConta(numConta);
+				case 8:
 					System.out.println("Encerrando o aplicativo.");
 					input.close();
 					return;
 				default:
-					System.out.println("Selecione uma opção de 1 a 6.");
+					System.out.println("Selecione uma opção de 1 a 8.");
 					option = 0;
 			}
 		}
