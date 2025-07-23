@@ -18,11 +18,6 @@ public abstract class Conta /*implements Comparable<dominio.Conta>*/ {
 		this.cliente = cliente;
 	}
 
-//	@Override
-//	public int compareTo(dominio.Conta c) {
-//		return Integer.compare(numero, c.getNumero());
-//	}
-
 	public void imprimirExtrato() {}
 
 	public void sacar(double valor) {
@@ -44,18 +39,6 @@ public abstract class Conta /*implements Comparable<dominio.Conta>*/ {
 		System.out.println("Transferência realizada com sucesso.");
 	}
 
-	public int getAgencia() {
-		return agencia;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public double getSaldo() {
-		return saldo;
-	}
-
 	protected void imprimirInfosComuns() {
 		System.out.printf("Titular: %s%n", this.cliente.getNome());
 		System.out.printf("Agencia: %d%n", this.agencia);
@@ -68,6 +51,18 @@ public abstract class Conta /*implements Comparable<dominio.Conta>*/ {
 		if (o == null || getClass() != o.getClass()) return false;
 		Conta conta = (Conta) o;
 		return numero == conta.numero;
+	}
+
+	public int getAgencia() {
+		return agencia;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public double getSaldo() {
+		return saldo;
 	}
 
 	@Override

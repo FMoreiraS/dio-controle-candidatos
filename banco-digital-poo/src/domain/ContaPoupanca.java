@@ -7,7 +7,7 @@ public final class ContaPoupanca extends Conta {
 	}
 
 	public void imprimirExtrato() {
-		System.out.println("=== Extrato: dominio.Conta Poupança ===");
+		System.out.println("=== Extrato: Conta Poupança ===");
 		super.imprimirInfosComuns();
 		System.out.println("\n");
 	}

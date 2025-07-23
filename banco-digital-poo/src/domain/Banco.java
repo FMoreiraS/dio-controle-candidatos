@@ -19,15 +19,15 @@ public class Banco {
 	public void listarContas() {
 		if (!contas.isEmpty()) {
 			Set<Conta> contasPorNumero = new TreeSet<>(new CompararPorNumero());
-			System.out.printf("===== Contas do dominio.Banco %s =====\n", this.getNome());
+			System.out.printf("===== Contas do Banco %s =====\n", this.getNome());
 			contasPorNumero.addAll(contas);
 
-			Consumer<Conta> ordenarPorNumero = conta -> {
+			Consumer<Conta> exibirConta = conta -> {
 				System.out.println("-------------------------------");
 				conta.imprimirInfosComuns();
 			};
 
-			contasPorNumero.forEach(ordenarPorNumero);
+			contasPorNumero.forEach(exibirConta);
 		} else {
 			System.out.println("O banco " + getNome() + " não possui contas.");
 		}
@@ -77,11 +77,16 @@ public class Banco {
 					conta = c;
 				}
 			}
-			if (conta == null) throw new RuntimeException("A");
+			if (conta == null) throw new RuntimeException("A conta não existe neste banco.");
 			return conta;
 		} else {
 			throw new RuntimeException("O banco não possui contas.");
 		}
+	}
+
+	public void fecharConta(int numero) {
+		Conta contaParaRemover = buscarConta(numero);
+		contas.remove(contaParaRemover);
 	}
 
 	public String getNome() {

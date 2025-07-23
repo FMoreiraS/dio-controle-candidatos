@@ -8,7 +8,7 @@ public final class ContaCorrente extends Conta {
 
 
 	public void imprimirExtrato() {
-		System.out.println("=== Extrato: dominio.Conta Corrente ===");
+		System.out.println("=== Extrato: Conta Corrente ===");
 		super.imprimirInfosComuns();
 		System.out.println("\n");
 	}
