@@ -3,7 +3,7 @@ package tictactoe;
 public class Player {
     private String name;
     private boolean movesNow;
-    private SquareMark marker;
+    private SpaceMark marker;
 
     public Player (String name) {
         this.name = name;
@@ -21,11 +21,11 @@ public class Player {
         this.movesNow = movesNow;
     }
 
-    public SquareMark getMarker() {
+    public SpaceMark getMarker() {
         return marker;
     }
 
-    public void setMarker(SquareMark sign) {
+    public void setMarker(SpaceMark sign) {
         this.marker = sign;
     }
 

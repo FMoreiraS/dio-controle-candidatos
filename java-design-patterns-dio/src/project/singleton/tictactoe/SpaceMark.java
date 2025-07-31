@@ -1,13 +1,13 @@
 package tictactoe;
 
-public enum SquareMark {
+public enum SpaceMark {
     VOID (" "),
     X ("X"),
     O ("O");
 
     private String mark;
 
-    SquareMark(String mark) {
+    SpaceMark(String mark) {
         this.mark = mark;
     }
 

@@ -19,10 +19,14 @@ public class Main {
                 int row = scanner.nextInt();
                 System.out.println("Indique a coluna da posição desejada");
                 int column = scanner.nextInt();
-                Board.markSquare(row, column, SquareMark.X);
-                if (Board.verifyVictory().equals(SquareMark.X)) {
+                Board.markSpace(row, column, SpaceMark.X);
+                SpaceMark winnerMarker = Board.verifyVictory();
+                if (winnerMarker.equals(SpaceMark.X)) {
+                    Board.showBoard();
                     System.out.printf("%s venceu o jogo.\n", p1.getName());
                     break;
+                } else if (Board.getMarkedSpaces() == 9 && winnerMarker.equals(SpaceMark.VOID)) {
+                    System.out.println("O jogo empatou");
                 }
                 p1.setMovesNow(false);
                 p2.setMovesNow(true);
@@ -32,10 +36,14 @@ public class Main {
                 int row = scanner.nextInt();
                 System.out.println("Indique a coluna da posição desejada");
                 int column = scanner.nextInt();
-                Board.markSquare(row, column, SquareMark.O);
-                if (Board.verifyVictory().equals(SquareMark.O)) {
+                Board.markSpace(row, column, SpaceMark.O);
+                SpaceMark winnerMarker = Board.verifyVictory();
+                if (winnerMarker.equals(SpaceMark.X)) {
+                    Board.showBoard();
                     System.out.printf("%s venceu o jogo.\n", p2.getName());
                     break;
+                } else if (Board.getMarkedSpaces() == 9 && winnerMarker.equals(SpaceMark.VOID)) {
+                    System.out.println("O jogo empatou");
                 }
                 p2.setMovesNow(false);
                 p1.setMovesNow(true);
@@ -65,8 +73,8 @@ public class Main {
 
                 System.out.println("Novo jogo iniciado");
                 System.out.printf("%s marcará com X e %s com O.\n", p1.getName(), p2.getName());
-                p1.setMarker(SquareMark.X);
-                p2.setMarker(SquareMark.O);
+                p1.setMarker(SpaceMark.X);
+                p2.setMarker(SpaceMark.O);
                 Board.createNew();
                 break;
             } else {

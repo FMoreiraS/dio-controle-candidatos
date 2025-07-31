@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Board {
     private static List<List<Space>> rows = new ArrayList<>();
+    private static int markedSpaces = 0;
 
     private static Board instancia = new Board();
 	
@@ -31,10 +32,9 @@ public class Board {
         getSquareMark(row3, 1),
         getSquareMark(row3, 2),
         getSquareMark(row3, 3));
-        // System.out.println("---1-----2-----3--");
     }
     
-    public static void markSquare(int row, int column, SquareMark mark) {
+    public static void markSpace(int row, int column, SpaceMark mark) {
         List<Space> row1 = rows.get(0);
         List<Space> row2 = rows.get(1);
         List<Space> row3 = rows.get(2);
@@ -64,6 +64,7 @@ public class Board {
                 row3.get(2).setMark(mark);
             }
         }
+        markedSpaces += 1;
     }
     
     public static void createNew () {
@@ -84,23 +85,23 @@ public class Board {
         rows.add(row3);
     }
 
-    public static SquareMark verifyVictory() {
-        SquareMark winnerMark = SquareMark.VOID;
+    public static SpaceMark verifyVictory() {
+        SpaceMark winnerMark = SpaceMark.VOID;
         List<Space> row1 = rows.get(0);
 
-        SquareMark r1S1 = row1.get(0).getMark();
-        SquareMark r1S2 = row1.get(1).getMark();
-        SquareMark r1S3 = row1.get(2).getMark();
+        SpaceMark r1S1 = row1.get(0).getMark();
+        SpaceMark r1S2 = row1.get(1).getMark();
+        SpaceMark r1S3 = row1.get(2).getMark();
         
         List<Space> row2 = rows.get(1);
-        SquareMark r2S1 = row2.get(0).getMark();
-        SquareMark r2S2 = row2.get(1).getMark();
-        SquareMark r2S3 = row2.get(2).getMark();
+        SpaceMark r2S1 = row2.get(0).getMark();
+        SpaceMark r2S2 = row2.get(1).getMark();
+        SpaceMark r2S3 = row2.get(2).getMark();
        
         List<Space> row3 = rows.get(2);
-        SquareMark r3S1 = row3.get(0).getMark();
-        SquareMark r3S2 = row3.get(1).getMark();
-        SquareMark r3S3 = row3.get(2).getMark();
+        SpaceMark r3S1 = row3.get(0).getMark();
+        SpaceMark r3S2 = row3.get(1).getMark();
+        SpaceMark r3S3 = row3.get(2).getMark();
 
         if (r1S1.equals(r1S2) && r1S2.equals(r1S3)) {
             winnerMark = r1S1;
@@ -126,11 +127,15 @@ public class Board {
         return rows;
     }
     
-    private static String getSquareMark(List<Space> row, int square) {
-        return row.get(square - 1).getMark().getMark();
+    private static String getSquareMark(List<Space> row, int space) {
+        return row.get(space - 1).getMark().getMark();
     }
 
     public static Board getInstancia() {
         return instancia;
+    }
+
+    public static int getMarkedSpaces() {
+        return markedSpaces;
     }
 }
