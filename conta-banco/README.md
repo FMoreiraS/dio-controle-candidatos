@@ -1,8 +1,8 @@
 # Projeto Banco de Terminal 🏦🪙
 Esse projeto, nomeado "conta-banco", conforme a sugestão do instrutor da [DIO](https://www.dio.me/en)
 Gleyson Sampaio, tem por finalidade exercitar a sintaxe básica da linguagem Java, mediante a criação 
-de uma aplicação de banco simples que funciona no terminal e recebe entradas de dados interativamente 
-do o usuário.
+de uma aplicação de banco simples que funciona no terminal e recebe entradas de dados
+interativamente do usuário.
 ## Recursos utilizados:
 1. classes **Scanner** e **Locale**, do pacote "**util**" da linguagem, para receber os dados da 
 "conta" do usuário e adequá-los ao formato de número estadunidense, respectivamente;
